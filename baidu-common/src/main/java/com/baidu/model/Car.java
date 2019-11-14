@@ -14,13 +14,9 @@ import lombok.Data;
  * @return</pre>
  */
 @Data
-public class User {
+public class Car {
 
-    private Integer uid;
+    private Integer carid;
 
-    private String uname;
 
-    private Integer uage;
-
-    private Integer utype;
 }
