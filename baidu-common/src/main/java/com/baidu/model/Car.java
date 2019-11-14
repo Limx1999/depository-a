@@ -18,5 +18,7 @@ public class Car {
 
     private Integer carid;
 
+     private String carname;
+
 
 }
