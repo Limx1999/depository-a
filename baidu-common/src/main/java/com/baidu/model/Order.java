@@ -14,13 +14,9 @@ import lombok.Data;
  * @return</pre>
  */
 @Data
-public class Car {
+public class Order {
 
-    private Integer carid;
+    private Integer orderid;
 
-     private String carname;
-
-     private Integer cattype;
-
-
+    private String ordername;
 }

@@ -23,4 +23,5 @@ public class User {
     private Integer uage;
 
     private Integer utype;
+
 }
