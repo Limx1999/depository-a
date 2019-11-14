@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baidu.dao.BdTDao" >
+    <select id="getUList" resultType="com.baidu.model.User">
+        select * from t_user
+    </select>
+    <sql id="userwheresql">
+        <where>
+            <if test="u.uname!=null and u.uname!='' ">
+                and uname like '%${u.uname}%'
+            </if>
+        </where>
+    </sql>
+    <select id="selectTotal" resultType="int">
+        select count(*) from t_user
+          <include refid="userwheresql"></include>
+    </select>
+    <select id="selectUserList" resultType="com.baidu.model.User">
+        select * from t_user
+       <include refid="userwheresql"></include>
+    </select>
+
+    <select id="selectUserById" resultType="com.baidu.model.User">
+        select * from t_user where uid = #{id}
+    </select>
+
+    <delete id="delUsers" >
+        delete from t_user  where uid in
+        <foreach collection="array" separator="," item="id" open="(" close=")" >
+            #{id}
+        </foreach>
+    </delete>
+
+    <delete id="addUser" parameterType="com.baidu.model.User">
+        insert into t_user(uname,upwd,zid,bid,uprice,uinfo) values (#{uname},'123',1,2,100.1,'很Nice')
+    </delete>
+    <update id="updateU" >
+        update t_user set uname = #{uname}   where uid = #{uid}
+    </update>
+</mapper>

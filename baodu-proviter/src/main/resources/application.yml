@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: baidu-proviter
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/hello?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8
+    username: root
+    password: root
+
+
+
+
+eureka:
+  client:
+    service-url:
+      defaulZone: http://localhost:8761/eureka
+
+
+
+
+
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+
